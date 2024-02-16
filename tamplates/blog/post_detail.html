@@ -1,0 +1,27 @@
+<!-- post_detail.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Detail</title>
+</head>
+<body>
+    <h1>{{ post.title }}</h1>
+    <p>Published on: {{ post.published_date }}</p>
+    <p>Author: {{ post.author }}</p>
+    <div>{{ post.content }}</div>
+
+    <!-- Відображення коментарів -->
+    <h2>Comments</h2>
+    {% for comment in post.comments.all %}
+        <div>
+            <p>Author: {{ comment.author_name }}</p>
+            <p>{{ comment.text }}</p>
+            <p>Created at: {{ comment.created_date }}</p>
+        </div>
+    {% empty %}
+        <p>No comments yet.</p>
+    {% endfor %}
+</body>
+</html>
