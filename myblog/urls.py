@@ -16,8 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import TemplateView
 
 urlpatterns = [
+    # Маршрут для головної сторінки
+    path('', TemplateView.as_view(template_name='home.html'), name='home'),
+
+    # Маршрути для адміністративного інтерфейсу Django
     path('admin/', admin.site.urls),
-    path('post_list/', include("blog.urls"))
+    
+    # Маршрути для вашого додатку blog
+    path('blog/', include('blog.urls')),  
 ]

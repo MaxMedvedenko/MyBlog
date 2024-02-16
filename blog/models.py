@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from datetime import timedelta
-from blog.models import Post
+
 
 class Author(models.Model):
     name = models.CharField(max_length=100)
